@@ -28,3 +28,8 @@ resource "azurerm_storage_account" "storage" {
  tags = var.tags
 }
 
+resource "azurerm_storage_container" "medallion-bronze" {
+  name                  = "bronze"
+  storage_account_id    = azurerm_storage_account.storage.id
+  container_access_type = "private"
+}
